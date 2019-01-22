@@ -7,7 +7,7 @@
 	let summa=0;
 	
 	for (let value of array){                                // Суммирование всех покупок
-      summa=summa+value;
+          summa=summa+value;
 	}
 		
 	const bonus=(summa-10000)*0.05;                          //  Вычисление бонуса
