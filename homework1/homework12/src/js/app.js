@@ -1,20 +1,27 @@
 "use strict";
   
-const balans=[523, 6000, 5001];                            // Массив исходных данных
-
-const balanseWrite=(array)=>{                              // Объявление функции вывода баланса
-  let b="Баланс: ";
-  for (let value of array){                                // Цикл обхода элементов массива
-    let ost=value%10;                                      // Определение остатка от деления на 10 для выбора окончания слова ""Балл
+const balanseWrite=(string, numberOfBalanse)=>{                          // Объявление функции вывода баланса
+    let ost10=numberOfBalanse%10;                                        // Определение остатка от деления на 10 для выбора окончания слова ""Балл
+    let ost100=numberOfBalanse%100;                                      // Определение остатка от деления на 100 для выбора окончания слова ""Балл
     let ball = " баллов";
-    if (ost==1){
+    if ((ost10==1) & ((ost100<11)||(ost100>19))){
       ball = " балл";          
     }
-    else if ((ost>=2)&(ost<=4)){
+    else if (((ost10>=2)&(ost10<=4))&((ost100<11)||(ost100>19))){
       ball = " балла";
     }
-    document.write(`${b}${value}${ball}<br>`);              // Вывод на экран сообщения о балансе
-  }
+    document.write(`${string}${numberOfBalanse}${ball}<br>`);            // Вывод на экран сообщения о балансе
 }
 
-balanseWrite(balans);                                       // Вызов функции вывода баланса
+const string = 'Ваш баланс: ';
+let numberOfBalanse = 523;
+balanseWrite(string, numberOfBalanse);                                   // Вызов функции вывода баланса
+
+numberOfBalanse = 6000;
+balanseWrite(string, numberOfBalanse);
+
+numberOfBalanse = 5001;
+balanseWrite(string, numberOfBalanse);
+
+numberOfBalanse = 5013;
+balanseWrite(string, numberOfBalanse);
